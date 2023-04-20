@@ -1,0 +1,92 @@
+.menu-icon-wrapper {
+  /*   background: red; */
+  width: 30px;
+  height: 30px;
+  display: none;
+  z-index: 101;
+  order: 3;
+  
+}
+:root{
+  --height: 2px;
+  --bgcolor: #000;
+  --bgcolor-active: #fff;
+}
+@media (max-width: 1024px) {
+  .menu-icon-wrapper {
+    display: flex;
+    /* position: relative;
+    bottom: 3px; */
+  }
+}
+
+.menu-icon {
+  position: relative;
+  width: 24px;
+  height: var(--height);
+  background: var(--bgcolor);
+  align-self: center;
+}
+
+.menu-icon::before {
+  position: absolute;
+  left: 0;
+  top: -6px;
+  content: "";
+  width: 24px;
+  height: var(--height);
+  background: var(--bgcolor);
+  transition: transform 0.1s ease-in, top 0.1s linear 0.1s;
+}
+
+.menu-icon::after {
+  position: absolute;
+  right: 0;
+  top: 6px;
+  content: "";
+  width: 20px;
+  height: var(--height);
+  background: var(--bgcolor);
+  transition: transform 0.1s ease-in, top 0.1s linear 0.1s;
+}
+
+.menu-icon.menu-icon-active {
+  background-color: transparent;
+}
+
+.menu-icon.menu-icon-active::before {
+  transform: rotate(45deg);
+  background: var(--bgcolor-active);
+  top: 0;
+  transition: top 0.1s linear, transform 0.1s ease-in 0.1s;
+}
+
+.menu-icon.menu-icon-active::after {
+  transform: rotate(-45deg);
+  width: 24px;
+  background: var(--bgcolor-active);
+  top: 0;
+  transition: top 0.1s linear, transform 0.1s ease-in 0.1s;
+}/*# sourceMappingURL=burger.css.map */
+
+/* @media only screen and (max-width: 1024px) {
+  .nav--visible{
+      z-index: 100;
+      display: block;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.381);
+      .nav-list{
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          .nav-item{
+              color: #fff;
+          }
+      }
+  }
+} */
